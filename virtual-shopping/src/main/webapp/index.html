@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="thirdparty/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="thirdparty/jquery-3.1.0.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="thirdparty/js/bootstrap.min.js"></script>
+<title>Virtual Shopping</title>
+</head>
+<body style="width: 60%; margin-left: 20%; margin-top: 5%;">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Create Vendor</h3>
+		</div>
+		<div class="panel-body">
+			<form class="form-inline">
+				<div class="form-group">
+					<label for="exampleInputName2">Vendor Name</label> <input
+						type="text" class="form-control" id="vendorName"
+						placeholder="Amazon">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail2">Vendor Email</label> <input
+						type="email" class="form-control" id="vendorEmail"
+						placeholder="jane.doe@example.com">
+				</div>
+				<button type="button" class="btn btn-info" onclick="createVendor();">Create
+					Vendor</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
+<script>
+
+	function createVendor() {
+
+		var vendorName = $("#vendorName").val();
+
+		$.ajax({
+			url : 'http://localhost:7001/v1/createVendor?vendorName='+vendorName,
+			context : document.body,
+			method:'PUT'
+		}).done(function(response) {
+			alert(response);
+		});
+	}
+</script>
