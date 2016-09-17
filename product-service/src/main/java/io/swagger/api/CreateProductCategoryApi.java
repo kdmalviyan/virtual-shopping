@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @javax.annotation.Generated(value = "class io.swagger.codegen.languages.SpringCodegen", date = "2016-09-11T08:53:10.271Z")
-@Api(value = "createVendor", description = "the createVendor API")
-public interface CreateVendorApi {
+@Api(value = "createProductCategory", description = "the createProductCategory API")
+public interface CreateProductCategoryApi {
 
-	@ApiOperation(value = "Create Vendor", notes = "Create Vendor", response = Integer.class, tags = { "Product", })
+	@ApiOperation(value = "Create Category", notes = "Create Category", response = Integer.class, tags = { "Product", })
 	@ApiResponses(value = {
-			@ApiResponse(code = 200, message = "Vendor Created", response = Integer.class),
+			@ApiResponse(code = 200, message = "Category Created", response = Integer.class),
 			@ApiResponse(code = 200, message = "Unexpected error", response = Integer.class) })
-	@RequestMapping(value = "/createVendor", produces = { "application/json" }, method = RequestMethod.PUT)
-	ResponseEntity<Integer> createVendorPut(
-			@ApiParam(value = "Create Vendor with Name", required = true) @RequestParam(value = "vendorName", required = true) String vendorName
+	@RequestMapping(value = "/createProductCategory", produces = { "application/json" }, method = RequestMethod.PUT)
+	ResponseEntity<Integer> createProductCategoryPut(
+			@ApiParam(value = "Create category", required = true) @RequestParam(value = "category", required = true) String category
 
 	);
 

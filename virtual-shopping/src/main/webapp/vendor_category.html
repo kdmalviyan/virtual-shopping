@@ -13,7 +13,8 @@
 <title>Virtual Shopping</title>
 </head>
 <body style="width: 60%; margin-left: 20%; margin-top: 5%;">
-	<div class="panel panel-default">
+	<a href="index.html">Home</a>
+	<div class="panel panel-info">
 		<div class="panel-heading">
 			<h3 class="panel-title">Create Vendor</h3>
 		</div>
@@ -34,20 +35,51 @@
 			</form>
 		</div>
 	</div>
+	<div class="panel panel-warning">
+		<div class="panel-heading">
+			<h3 class="panel-title">Create Category</h3>
+		</div>
+		<div class="panel-body">
+			<form class="form-inline">
+				<div class="form-group">
+					<label for="exampleInputName2">Category Name</label> <input
+						type="text" class="form-control" id="categoryName"
+						placeholder="Electronics">
+				</div>
+				<button type="button" class="btn btn-info"
+					onclick="createCategory();">Create Category</button>
+			</form>
+		</div>
+	</div>
+
 </body>
 </html>
 <script>
-
+	var serverUrl = 'http://localhost:7001/product-service/v1/';
 	function createVendor() {
 
 		var vendorName = $("#vendorName").val();
 
 		$.ajax({
-			url : 'http://localhost:7001/v1/createVendor?vendorName='+vendorName,
+			url : serverUrl + '/createVendor?vendorName=' + vendorName,
 			context : document.body,
-			method:'PUT'
+			method : 'PUT',
 		}).done(function(response) {
 			alert(response);
 		});
+	}
+
+	function createCategory() {
+
+		var category = $("#categoryName").val();
+
+		$.ajax({
+			url : serverUrl + '/createProductCategory?category=' + category,
+			context : document.body,
+			method : 'PUT',
+		}).done(function(response) {
+			alert(response);
+		});
+
 	}
 </script>
